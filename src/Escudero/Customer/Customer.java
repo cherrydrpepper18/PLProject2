@@ -1,45 +1,28 @@
-package Brezina.Customer;
+package Escudero.Customer;
 
-/**
- * Created by blainebrezina on 1/29/16.
- */
+
 // declare, initialize, and combine to form customer objects
-public class Customer {
+public class Customer extends Person{
 
-    // declaring parts of customer object
-    private String name;
+    private String customerNum;
 
-    private String address;
+    //constructor for customer
+    public Customer(){
 
-    private String city;
-
-    private String state;
-
-    private int postalCode;
-
-    // initializing the customer object
-    public Customer (String name, String address, String city, String state, int postalCode){
-        this.name = name;
-
-        this.address = address;
-
-        this.city = city;
-
-        this.state = state;
-
-        this.postalCode = postalCode;
     }
 
-    // returns the formatted string of the customer info
-    public String getNameAndAddress (){
-        String message =
-                name + "\n" +
-                address + "\n" +
-                city + ", " +
-                state + " " +
-                postalCode;
+    // getter and setting for customer number
+    public String getCustomerNumber(){
+        return  customerNum;
+    }
 
-        return message;
+    public void setCustomerNumber(String number){
+        this.customerNum = number;
+    }
+
+    //implement abstract method getDisplay Text. Display customer number in addition to first and last name
+    @Override public String getDisplayText(){
+        return this.toString() + "\nCustomer number: " + customerNum;
 
     }
 

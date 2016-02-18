@@ -1,10 +1,12 @@
 package Escudero.Balance;
+
+// imported
 import java.text.NumberFormat;
 /**
  * Created by Kayleigh Escudero on 2/12/2016.
  */
 public class Account implements Balanceable, Depositable, Withdrawable{
-    double balance;
+    double balance = 1000;
 
     public void deposit(double amount){
         if (amount > 10000){

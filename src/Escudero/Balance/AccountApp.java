@@ -1,5 +1,4 @@
 package Escudero.Balance;
-import java.util.Scanner;
 /**
  * Created by Kayleigh Escudero on 2/12/2016.
  */
@@ -7,7 +6,7 @@ public class AccountApp{
 
     public static void main(String args[]){
         // get the scanner
-        Scanner s = new Scanner(System.in);
+        //Console s = new Console();
 
         // instantiate the new checking account
         CheckingAccount account = new CheckingAccount();
@@ -25,37 +24,40 @@ public class AccountApp{
 
             String type = "z";
             while (!(type.equalsIgnoreCase("w")) && !(type.equalsIgnoreCase("d"))){
-                System.out.print("Withdrawal or deposit? (w/d): ");
-                type = s.nextLine();
+                //System.out.print("Withdrawal or deposit? (w/d): ");
+                type = Console.getString("Withdrawal or deposit? (w/d): ");
             }
 
             if (type.equalsIgnoreCase("w")){
 
                 // prompt the user for input of the amount they would like to withdraw
-                System.out.print("Amount: ");
-                String amount = s.nextLine();
+                //System.out.print("Amount: ");
+                Double amount = Console.getDouble("Amount: ");
                 // takes string input from user and casts as int primitive
-                int amountInt = Integer.parseInt(amount);
+                //int amountInt = Integer.parseInt(amount);
 
+                /*
                 // UNNECESSARY with methods for error checking in account?
                 // checks that user input is less than current amount in account
-                while (amountInt > account.getBalance()) {
-                    System.out.print("Enter an amount less than " + account.getBalanceFormatted() + ": ");
-                    amount = s.nextLine();
-                    amountInt = Integer.parseInt(amount);
+                while (amount > account.getBalance()) {
+                    //System.out.print("Enter an amount less than " + account.getBalanceFormatted() + ": ");
+                    amount = Console.getDouble("Enter an amount less than " + account.getBalanceFormatted());
+                    //amountInt = Integer.parseInt(amount);
                 }
+                */
 
                 // perform the operation of withdrawing from the account
-                Transactions.withdraw(account, amountInt);
+                Transactions.withdraw(account, amount);
 
             }else if (type.equalsIgnoreCase("d")){
 
                 // prompt the user for input of the amount they would like to deposit
-                System.out.print("Amount: ");
-                String amount = s.nextLine();
+                //System.out.print("Amount: ");
+                Double amount = Console.getDouble("Amount: ");
                 // takes string input from user and casts as int primitive
-                int amountInt = Integer.parseInt(amount);
+                //int amountInt = Integer.parseInt(amount);
 
+                /*
                 // IS THIS NECESSARY IF CHECKING IN ACCOUNT CLASS?
                 // checks that user input is less $10,000
                 while (amountInt > 10000) {
@@ -63,15 +65,15 @@ public class AccountApp{
                     amount = s.nextLine();
                     amountInt = Integer.parseInt(amount);
                 }
-
+                */
                 // perform the operation of withdrawing from the account
-                Transactions.deposit(account, amountInt);
+                Transactions.deposit(account, amount);
             }
 
             String answer = "z";
             while (!(answer.equalsIgnoreCase("y")) && !(answer.equalsIgnoreCase("n"))){
-                System.out.print("Continue? (y/n): ");
-                answer = s.nextLine();
+                //System.out.print("Continue? (y/n): ");
+                answer = Console.getString("Continue? (y/n): ");
             }
 
             if (answer.equalsIgnoreCase("n")){

@@ -1,7 +1,5 @@
 package Escudero.Customer;
 
-// import scanner
-import java.util.Scanner;
 
 // start of main class
 public class PersonApp {
@@ -13,9 +11,6 @@ public class PersonApp {
 
     // start of main method
     public static void main(String[] args) {
-
-        // create a scanner
-        Scanner C = new Scanner(System.in);
 
         // print introduction
         System.out.println("Welcome to the Person Tester application");
@@ -30,9 +25,8 @@ public class PersonApp {
             // error check for letters other than c and e
             while (!(type.equalsIgnoreCase("c")) && !(type.equalsIgnoreCase("e"))) {
 
-                System.out.print("\nCreate customer or employee? (c/e)");
-                type = C.nextLine();
-                //type = C.readLine("Create customer or employee? (c/e)");
+                type = Console.getString("\nCreate customer or employee? (c/e)");
+                //type = Console.getString("Create customer or employee? (c/e)");
 
             }
 
@@ -40,20 +34,22 @@ public class PersonApp {
             // accept input for first, last, email address, and cust number or ssn for customers & employees
             if (type.equalsIgnoreCase("c")) {
                 Customer ppl = new Customer();
-
+                
+                /*
                 System.out.print("\nEnter first name: ");
-                ppl.setFirst(C.nextLine());
+                ppl.setFirst(Console.getString());
                 System.out.print("Enter last name: ");
-                ppl.setLast(C.nextLine());
+                ppl.setLast(Console.getString());
                 System.out.print("Enter email address: ");
-                ppl.setEmail(C.nextLine());
+                ppl.setEmail(Console.getString());
                 System.out.print("Customer number: ");
-                ppl.setCustomerNumber(C.nextLine());
+                ppl.setCustomerNumber(Console.getString());
+                */
 
-                /**ppl.setFirst(C.readLine("Enter first name: "));
-                ppl.setLast(C.readLine("Enter last name: "));
-                ppl.setEmail(C.readLine("Enter email address: "));
-                ppl.setCustomerNumber(C.readLine("Customer number: "));*/
+                ppl.setFirst(Console.getString("Enter first name: "));
+                ppl.setLast(Console.getString("Enter last name: "));
+                ppl.setEmail(Console.getString("Enter email address: "));
+                ppl.setCustomerNumber(Console.getString("Customer number: "));
 
                 System.out.println("\nYou entered: ");
                 // print created person
@@ -62,20 +58,21 @@ public class PersonApp {
             } else {
                 Employee ppl = new Employee();
 
-
+                /*
                 System.out.print("\nEnter first name: ");
-                ppl.setFirst(C.nextLine());
+                ppl.setFirst(Console.getString());
                 System.out.print("Enter last name: ");
-                ppl.setLast(C.nextLine());
+                ppl.setLast(Console.getString());
                 System.out.print("Enter email address: ");
-                ppl.setEmail(C.nextLine());
+                ppl.setEmail(Console.getString());
                 System.out.print("Social security number: ");
-                ppl.setSSN(C.nextLine());
+                ppl.setSSN(Console.getString());
+                */
 
-                /**ppl.setFirst(C.readLine("Enter first name: "));
-                ppl.setLast(C.readLine("Enter last name: "));
-                ppl.setEmail(C.readLine("Enter email address: "));
-                ppl.setSSN(C.readLine("Social security number: "));*/
+                ppl.setFirst(Console.getString("Enter first name: "));
+                ppl.setLast(Console.getString("Enter last name: "));
+                ppl.setEmail(Console.getString("Enter email address: "));
+                ppl.setSSN(Console.getString("Social security number: "));
 
                 // print created person
                 System.out.println("\nYou entered: ");
@@ -85,8 +82,8 @@ public class PersonApp {
             String answer = "g";
 
             while (!(answer.equalsIgnoreCase("y")) && !(answer.equalsIgnoreCase("n"))){
-                System.out.print("\nContinue? (y/n): ");
-                answer = C.nextLine();
+                //System.out.print("\nContinue? (y/n): ");
+                answer = Console.getString("\nContinue? (y/n): ");
             }
 
             if (answer.equalsIgnoreCase("n")){
